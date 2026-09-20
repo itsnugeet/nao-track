@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NaoTrack</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+}
+
+header {
+    background: white;
+    padding: 18px 6%;
+    border-bottom: 1px solid #e5e9f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #2563eb;
+}
+
+.badge {
+    background: #fff3cd;
+    color: #805b00;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+main {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.hero {
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 44px;
+    margin: 0 0 10px;
+}
+
+.hero p {
+    color: #657084;
+    font-size: 17px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.07);
+}
+
+/* SEARCH */
+
+.search-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 9px;
+}
+
+.search {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 16px;
+    border: 1px solid #ccd3df;
+    border-radius: 12px;
+    font-size: 17px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #2563eb;
+}
+
+.check-button {
+    background: #2563eb;
+    color: white;
+    padding: 0 27px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.check-button:hover {
+    background: #1d4ed8;
+}
+
+.demo-text {
+    text-align: center;
+    color: #7a8495;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+/* RESULT */
+
+#result {
+    margin-top: 30px;
+}
+
+/* ERROR */
+
+.error {
+    background: #fff5f5;
+    border: 1px solid #ffd5d5;
+    color: #b42318;
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+/* STATUS */
+
+.status-box {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.status {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.green {
+    color: #16a34a;
+}
+
+.red {
+    color: #dc2626;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.green-dot {
+    background: #22c55e;
+}
+
+.red-dot {
+    background: #ef4444;
+}
+
+.trip-type {
+    margin-top: 9px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #657084;
+}
+
+/* VEHICLE */
+
+.vehicle-title {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.vehicle-title h2 {
+    margin: 0 0 5px;
+    font-size: 27px;
+}
+
+.vehicle-title p {
+    margin: 0;
+    color: #717b8c;
+}
+
+/* HOUSE LIST */
+
+.house-list {
+    border: 1px solid #e5e9f0;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.house-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #edf0f4;
+}
+
+.house-row:last-child {
+    border-bottom: none;
+}
+
+.house-name {
+    font-weight: bold;
+}
+
+.house-label {
+    display: block;
+    font-size: 11px;
+    color: #8992a1;
+    margin-top: 4px;
+}
+
+.house-time {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* LOCATION BUTTON */
+
+.location-button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 17px;
+    background: #172033;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.location-button:hover {
+    background: #0f172a;
+}
+
+/* LOCATION SCREEN */
+
+#locationScreen {
+    display: none;
+}
+
+.back-button {
+    background: #eef2f7;
+    color: #172033;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    background: #e2e8f0;
+}
+
+.location-header h2 {
+    margin: 0 0 5px;
+}
+
+.location-header p {
+    margin: 0 0 15px;
+    color: #717b8c;
+}
+
+.live-status {
+    color: #15803d;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.live-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #22c55e;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+/* MAP */
+
+.map-container {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #e9eef3;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+}
+
+.map-container:active {
+    cursor: grabbing;
+}
+
+.map {
+    position: absolute;
+    width: 1500px;
+    height: 900px;
+    left: 0;
+    top: 0;
+
+    background:
+        linear-gradient(
+            35deg,
+            transparent 43%,
+            #d6dde5 44%,
+            #d6dde5 48%,
+            transparent 49%
+        ),
+        linear-gradient(
+            -25deg,
+            transparent 47%,
+            #dce3eb 48%,
+            #dce3eb 51%,
+            transparent 52%
+        ),
+        linear-gradient(
+            90deg,
+            transparent 48%,
+            #dce3eb 49%,
+            #dce3eb 51%,
+            transparent 52%
+        ),
+        #eef2f7;
+}
+
+/* EXTRA ROADS */
+
+.road {
+    position: absolute;
+    background: #dbeafe;
+    border-radius: 10px;
+}
+
+.road1 {
+    width: 900px;
+    height: 65px;
+    left: 200px;
+    top: 300px;
+    transform: rotate(-8deg);
+}
+
+.road2 {
+    width: 70px;
+    height: 800px;
+    left: 800px;
+    top: 50px;
+    transform: rotate(12deg);
+}
+
+.road3 {
+    width: 700px;
+    height: 45px;
+    left: 400px;
+    top: 600px;
+    transform: rotate(18deg);
+    background: #e2e8f0;
+}
+
+/* ROUTE */
+
+.route-line {
+    position: absolute;
+    left: 515px;
+    top: 270px;
+    width: 420px;
+    height: 8px;
+    background: #2563eb;
+    border-radius: 10px;
+    transform: rotate(17deg);
+    transform-origin: left center;
+    opacity: 0.8;
+}
+
+/* MAP LABELS */
+
+.map-label {
+    position: absolute;
+    background: white;
+    padding: 9px 12px;
+    border-radius: 9px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 5;
+}
+
+.school-label {
+    left: 380px;
+    top: 540px;
+}
+
+.vehicle-label {
+    left: 850px;
+    top: 170px;
+}
+
+.guardian-label {
+    left: 1080px;
+    top: 400px;
+}
+
+/* VEHICLE MARKER */
+
+.vehicle-marker {
+    position: absolute;
+    left: 900px;
+    top: 220px;
+    width: 38px;
+    height: 38px;
+    background: #2563eb;
+    border: 5px solid white;
+    border-radius: 50%;
+    box-shadow: 0 5px 18px rgba(37,99,235,0.45);
+    z-index: 6;
+}
+
+.vehicle-marker::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    left: 9px;
+    top: 9px;
+}
+
+/* GUARDIAN LOCATION */
+
+.guardian-marker {
+    position: absolute;
+    left: 1130px;
+    top: 455px;
+    width: 34px;
+    height: 34px;
+    background: #ef4444;
+    border: 5px solid white;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(239,68,68,0.4);
+    z-index: 6;
+}
+
+.guardian-marker::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    left: 8px;
+    top: 8px;
+}
+
+/* MAP CONTROLS */
+
+.map-controls {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.map-control {
+    width: 42px;
+    height: 42px;
+    background: white;
+    color: #172033;
+    border: none;
+    border-radius: 9px;
+    font-size: 21px;
+    font-weight: bold;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+/* LOCATION INFO */
+
+.location-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.location-box {
+    background: #f8fafc;
+    border: 1px solid #e5e9f0;
+    border-radius: 13px;
+    padding: 17px;
+}
+
+.location-label {
+    font-size: 10px;
+    color: #7b8494;
+    text-transform: uppercase;
+}
+
+.location-value {
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+/* LEGEND */
+
+.legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #657084;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.legend-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+
+.blue {
+    background: #2563eb;
+}
+
+.red-dot-map {
+    background: #ef4444;
+}
+
+footer {
+    text-align: center;
+    color: #8a93a2;
+    font-size: 12px;
+    margin: 30px 0;
+    line-height: 1.6;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    main {
+        margin: 35px auto;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .search {
+        flex-direction: column;
+    }
+
+    .check-button {
+        height: 52px;
+    }
+
+    .location-info {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container {
+        height: 350px;
+    }
+
+    header {
+        padding: 16px 5%;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .badge {
+        font-size: 9px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Nao<span>Track</span>
+    </div>
+
+    <div class="badge">
+        PROTOTYPE • DEMO ONLY
+    </div>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <h1>
+            Track your school vehicle.
+        </h1>
+
+        <p>
+            Simple, school-managed vehicle tracking.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <!-- VEHICLE SEARCH -->
+
+        <div id="vehicleScreen">
+
+            <div class="search-title">
+                Vehicle Number
+            </div>
+
+            <div class="search">
+
+                <input
+                    id="vehicleNumber"
+                    type="text"
+                    placeholder="Enter vehicle number..."
+                    autocomplete="off"
+                >
+
+                <button
+                    class="check-button"
+                    onclick="checkVehicle()"
+                >
+                    CHECK VEHICLE
+                </button>
+
+            </div>
+
+            <div class="demo-text">
+                Demo vehicle number: <b>4827</b>
+            </div>
+
+            <div id="result"></div>
+
+        </div>
+
+
+        <!-- LIVE LOCATION -->
+
+        <div id="locationScreen">
+
+            <button
+                class="back-button"
+                onclick="goBack()"
+            >
+                ← Back to Vehicle
+            </button>
+
+
+            <div class="location-header">
+
+                <h2>
+                    Live Vehicle Location
+                </h2>
+
+                <p>
+                    Vehicle 4827 • Route 1
+                </p>
+
+            </div>
+
+
+            <div class="live-status">
+
+                <span class="live-dot"></span>
+
+                LIVE LOCATION
+
+            </div>
+
+
+            <div
+                class="map-container"
+                id="mapContainer"
+            >
+
+                <div
+                    class="map"
+                    id="map"
+                >
+
+                    <div class="road road1"></div>
+                    <div class="road road2"></div>
+                    <div class="road road3"></div>
+
+
+                    <div class="route-line"></div>
+
+
+                    <div class="map-label school-label">
+                        🏫 School
+                    </div>
+
+
+                    <div class="map-label vehicle-label">
+                        🚌 Vehicle 4827
+                    </div>
+
+
+                    <div class="map-label guardian-label">
+                        📍 Your current location
+                    </div>
+
+
+                    <div class="vehicle-marker"></div>
+
+
+                    <div class="guardian-marker"></div>
+
+                </div>
+
+
+                <div class="map-controls">
+
+                    <button
+                        class="map-control"
+                        onclick="zoomIn()"
+                    >
+                        +
+                    </button>
+
+                    <button
+                        class="map-control"
+                        onclick="zoomOut()"
+                    >
+                        −
+                    </button>
+
+                    <button
+                        class="map-control"
+                        onclick="resetMap()"
+                    >
+                        ⌂
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="legend">
+
+                <div class="legend-item">
+
+                    <span class="legend-dot blue"></span>
+
+                    Vehicle
+
+                </div>
+
+
+                <div class="legend-item">
+
+                    <span class="legend-dot red-dot-map"></span>
+
+                    Your current location
+
+                </div>
+
+            </div>
+
+
+            <div class="location-info">
+
+                <div class="location-box">
+
+                    <div class="location-label">
+                        Vehicle
+                    </div>
+
+                    <div class="location-value">
+                        🚌 4827
+                    </div>
+
+                </div>
+
+
+                <div class="location-box">
+
+                    <div class="location-label">
+                        Status
+                    </div>
+
+                    <div class="location-value green">
+                        🟢 On Route
+                    </div>
+
+                </div>
+
+
+                <div class="location-box">
+
+                    <div class="location-label">
+                        Updated
+                    </div>
+
+                    <div class="location-value">
+                        Just now
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        NaoTrack is a prototype for demonstration purposes.
+        <br>
+
+        The map and locations shown are fictional demo data.
+        <br>
+
+        No real vehicle or guardian location is being tracked.
+
+    </footer>
+
+</main>
+
+
+<script>
+
+/* =========================
+   CHECK VEHICLE
+========================= */
+
+function checkVehicle() {
+
+    const number =
+        document.getElementById("vehicleNumber").value.trim();
+
+    const result =
+        document.getElementById("result");
+
+
+    if (number === "4827") {
+
+        result.innerHTML = `
+
+            <div class="status-box">
+
+                <div class="status green">
+
+                    <span class="status-dot green-dot"></span>
+
+                    ON TIME
+
+                </div>
+
+                <div class="trip-type">
+                    ARRIVAL
+                </div>
+
+            </div>
+
+
+            <div class="vehicle-title">
+
+                <h2>
+                    Vehicle 4827
+                </h2>
+
+                <p>
+                    Route 1 • School Transport
+                </p>
+
+            </div>
+
+
+            <div class="house-list">
+
+
+                <div class="house-row">
+
+                    <div>
+                        <span class="house-name">
+                            House 1
+                        </span>
+
+                        <span class="house-label">
+                            Arrival
+                        </span>
+                    </div>
+
+                    <div class="house-time green">
+                        7:42 AM
+                    </div>
+
+                </div>
+
+
+                <div class="house-row">
+
+                    <div>
+                        <span class="house-name">
+                            House 2
+                        </span>
+
+                        <span class="house-label">
+                            Arrival
+                        </span>
+                    </div>
+
+                    <div class="house-time green">
+                        7:50 AM
+                    </div>
+
+                </div>
+
+
+                <div class="house-row">
+
+                    <div>
+                        <span class="house-name">
+                            House 3
+                        </span>
+
+                        <span class="house-label">
+                            Arrival
+                        </span>
+                    </div>
+
+                    <div class="house-time green">
+                        7:58 AM
+                    </div>
+
+                </div>
+
+
+                <div class="house-row">
+
+                    <div>
+                        <span class="house-name">
+                            House 4
+                        </span>
+
+                        <span class="house-label">
+                            Arrival
+                        </span>
+                    </div>
+
+                    <div class="house-time green">
+                        8:06 AM
+                    </div>
+
+                </div>
+
+
+                <div class="house-row">
+
+                    <div>
+                        <span class="house-name">
+                            House 5
+                        </span>
+
+                        <span class="house-label">
+                            Arrival
+                        </span>
+                    </div>
+
+                    <div class="house-time green">
+                        8:14 AM
+                    </div>
+
+                </div>
+
+
+                <div class="house-row">
+
+                    <div>
+                        <span class="house-name">
+                            School
+                        </span>
+
+                        <span class="house-label">
+                            Final Stop
+                        </span>
+                    </div>
+
+                    <div class="house-time green">
+                        8:25 AM
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                class="location-button"
+                onclick="showLocation()"
+            >
+                📍 CHECK LIVE LOCATION
+            </button>
+
+        `;
+
+    } else {
+
+        result.innerHTML = `
+
+            <div class="error">
+
+                <strong>
+                    ❌ Failed to fetch
+                </strong>
+
+                <br><br>
+
+                No vehicle was found with the number
+
+                <b>
+                    ${number || "entered"}
+                </b>.
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================
+   LIVE LOCATION
+========================= */
+
+function showLocation() {
+
+    document.getElementById("vehicleScreen").style.display =
+        "none";
+
+    document.getElementById("locationScreen").style.display =
+        "block";
+
+    resetMap();
+
+}
+
+
+function goBack() {
+
+    document.getElementById("locationScreen").style.display =
+        "none";
+
+    document.getElementById("vehicleScreen").style.display =
+        "block";
+
+}
+
+
+/* =========================
+   DRAGGABLE MAP
+========================= */
+
+const container =
+    document.getElementById("mapContainer");
+
+const map =
+    document.getElementById("map");
+
+let dragging = false;
+
+let startX = 0;
+let startY = 0;
+
+let mapX = -250;
+let mapY = -180;
+
+let scale = 1;
+
+
+function updateMap() {
+
+    map.style.transform =
+        `translate(${mapX}px, ${mapY}px) scale(${scale})`;
+
+}
+
+
+/* MOUSE */
+
+container.addEventListener("mousedown", function(e) {
+
+    if (e.target.closest(".map-control")) {
+        return;
+    }
+
+    dragging = true;
+
+    startX = e.clientX - mapX;
+    startY = e.clientY - mapY;
+
+});
+
+
+document.addEventListener("mousemove", function(e) {
+
+    if (!dragging) {
+        return;
+    }
+
+    mapX = e.clientX - startX;
+    mapY = e.clientY - startY;
+
+    updateMap();
+
+});
+
+
+document.addEventListener("mouseup", function() {
+
+    dragging = false;
+
+});
+
+
+/* TOUCH */
+
+container.addEventListener("touchstart", function(e) {
+
+    if (e.target.closest(".map-control")) {
+        return;
+    }
+
+    const touch = e.touches[0];
+
+    dragging = true;
+
+    startX = touch.clientX - mapX;
+    startY = touch.clientY - mapY;
+
+}, { passive: true });
+
+
+container.addEventListener("touchmove", function(e) {
+
+    if (!dragging) {
+        return;
+    }
+
+    const touch = e.touches[0];
+
+    mapX = touch.clientX - startX;
+    mapY = touch.clientY - startY;
+
+    updateMap();
+
+}, { passive: true });
+
+
+container.addEventListener("touchend", function() {
+
+    dragging = false;
+
+});
+
+
+/* =========================
+   ZOOM
+========================= */
+
+function zoomIn() {
+
+    scale += 0.15;
+
+    if (scale > 2) {
+        scale = 2;
+    }
+
+    updateMap();
+
+}
+
+
+function zoomOut() {
+
+    scale -= 0.15;
+
+    if (scale < 0.7) {
+        scale = 0.7;
+    }
+
+    updateMap();
+
+}
+
+
+function resetMap() {
+
+    mapX = -250;
+    mapY = -180;
+    scale = 1;
+
+    updateMap();
+
+}
+
+
+/* =========================
+   ENTER KEY
+========================= */
+
+document
+    .getElementById("vehicleNumber")
+    .addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+
+            checkVehicle();
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
