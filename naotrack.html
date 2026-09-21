@@ -19,601 +19,418 @@ body {
 
 header {
     background: white;
-    padding: 18px 6%;
     border-bottom: 1px solid #e5e9f0;
+    padding: 18px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .logo {
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 800;
+    letter-spacing: -1px;
 }
 
 .logo span {
-    color: #2563eb;
+    color: #2477ff;
 }
 
-.badge {
-    background: #fff3cd;
-    color: #805b00;
-    padding: 7px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: bold;
+.header-right {
+    color: #697386;
+    font-size: 14px;
 }
 
-main {
-    max-width: 1000px;
-    margin: 50px auto;
+.container {
+    max-width: 1050px;
+    margin: 35px auto;
     padding: 0 20px;
 }
 
-.hero {
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 44px;
-    margin: 0 0 10px;
-}
-
-.hero p {
-    color: #657084;
-    font-size: 17px;
+.auth {
+    max-width: 450px;
+    margin: 50px auto;
 }
 
 .card {
     background: white;
-    padding: 30px;
-    margin-top: 30px;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.07);
+    border: 1px solid #e5e9f0;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 8px 30px rgba(20, 30, 50, 0.05);
 }
 
-/* SEARCH */
-
-.search-title {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 9px;
-}
-
-.search {
+.tabs {
     display: flex;
-    gap: 10px;
+    background: #f0f3f8;
+    padding: 4px;
+    border-radius: 10px;
+    margin-bottom: 22px;
 }
 
-input {
-    flex: 1;
-    padding: 16px;
-    border: 1px solid #ccd3df;
-    border-radius: 12px;
-    font-size: 17px;
-    outline: none;
+.tab {
+    width: 50%;
+    padding: 11px;
+    border: 0;
+    background: transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
 }
 
-input:focus {
-    border-color: #2563eb;
+.tab.active {
+    background: white;
+    box-shadow: 0 2px 7px rgba(0,0,0,0.08);
 }
 
-.check-button {
-    background: #2563eb;
-    color: white;
-    padding: 0 27px;
-    border: none;
-    border-radius: 12px;
+h1 {
+    margin-top: 0;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.subtitle {
+    color: #697386;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 13px;
+    margin: 7px 0 14px;
+    border: 1px solid #d9dee8;
+    border-radius: 9px;
     font-size: 15px;
-    font-weight: bold;
+    background: white;
+}
+
+button {
+    border: 0;
     cursor: pointer;
 }
 
-.check-button:hover {
-    background: #1d4ed8;
+.primary {
+    width: 100%;
+    padding: 13px;
+    background: #2477ff;
+    color: white;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 700;
 }
 
-.demo-text {
-    text-align: center;
-    color: #7a8495;
-    font-size: 13px;
-    margin-top: 12px;
+.primary:hover {
+    background: #1766e5;
 }
 
-/* RESULT */
-
-#result {
-    margin-top: 30px;
+.hidden {
+    display: none !important;
 }
 
-/* ERROR */
-
-.error {
-    background: #fff5f5;
-    border: 1px solid #ffd5d5;
-    color: #b42318;
-    padding: 20px;
-    border-radius: 14px;
-    text-align: center;
+.message {
+    margin-top: 10px;
+    font-size: 14px;
 }
+
+
+/* DASHBOARD */
+
+.welcome {
+    margin-bottom: 25px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background: white;
+    border: 1px solid #e5e9f0;
+    border-radius: 13px;
+    padding: 18px;
+}
+
+.info-title {
+    color: #7a8494;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.info-value {
+    margin-top: 7px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+
+/* TRIP */
+
+.trip-card {
+    background: white;
+    border: 1px solid #e5e9f0;
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.trip-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.trip-button {
+    flex: 1;
+    padding: 13px;
+    border-radius: 9px;
+    background: #eef2f7;
+    font-weight: 700;
+}
+
+.trip-button.active {
+    background: #2477ff;
+    color: white;
+}
+
 
 /* STATUS */
 
 .status-box {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.status {
-    font-size: 17px;
-    font-weight: bold;
-}
-
-.green {
-    color: #16a34a;
-}
-
-.red {
-    color: #dc2626;
-}
-
-.status-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 7px;
-}
-
-.green-dot {
-    background: #22c55e;
-}
-
-.red-dot {
-    background: #ef4444;
-}
-
-.trip-type {
-    margin-top: 9px;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1.5px;
-    color: #657084;
-}
-
-/* VEHICLE */
-
-.vehicle-title {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.vehicle-title h2 {
-    margin: 0 0 5px;
-    font-size: 27px;
-}
-
-.vehicle-title p {
-    margin: 0;
-    color: #717b8c;
-}
-
-/* HOUSE LIST */
-
-.house-list {
-    border: 1px solid #e5e9f0;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.house-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 20px;
-    border-bottom: 1px solid #edf0f4;
-}
-
-.house-row:last-child {
-    border-bottom: none;
-}
-
-.house-name {
-    font-weight: bold;
-}
-
-.house-label {
-    display: block;
-    font-size: 11px;
-    color: #8992a1;
-    margin-top: 4px;
-}
-
-.house-time {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* LOCATION BUTTON */
-
-.location-button {
-    width: 100%;
-    margin-top: 25px;
-    padding: 17px;
-    background: #172033;
-    color: white;
-    border: none;
     border-radius: 12px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
+    padding: 17px;
+    margin: 20px 0;
+    border: 1px solid #dfe5ee;
+    background: #f8fafc;
 }
 
-.location-button:hover {
-    background: #0f172a;
+.status-title {
+    font-weight: 800;
+    font-size: 18px;
 }
 
-/* LOCATION SCREEN */
-
-#locationScreen {
-    display: none;
+.status-description {
+    color: #697386;
+    margin-top: 5px;
 }
 
-.back-button {
-    background: #eef2f7;
-    color: #172033;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
+.on-time {
+    color: #159447;
+}
+
+.delayed {
+    color: #d93025;
+}
+
+.done {
+    color: #1476d4;
+}
+
+
+/* CURRENT LOCATION */
+
+.location-card {
+    border: 2px solid #2477ff;
+    background: #f5f9ff;
+    border-radius: 14px;
+    padding: 20px;
     margin-bottom: 20px;
 }
 
-.back-button:hover {
-    background: #e2e8f0;
-}
-
-.location-header h2 {
-    margin: 0 0 5px;
-}
-
-.location-header p {
-    margin: 0 0 15px;
-    color: #717b8c;
-}
-
-.live-status {
-    color: #15803d;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.live-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: #22c55e;
-    border-radius: 50%;
-    margin-right: 7px;
-}
-
-/* MAP */
-
-.map-container {
-    position: relative;
-    height: 450px;
-    overflow: hidden;
-    border-radius: 18px;
-    background: #e9eef3;
-    cursor: grab;
-    user-select: none;
-    touch-action: none;
-}
-
-.map-container:active {
-    cursor: grabbing;
-}
-
-.map {
-    position: absolute;
-    width: 1500px;
-    height: 900px;
-    left: 0;
-    top: 0;
-
-    background:
-        linear-gradient(
-            35deg,
-            transparent 43%,
-            #d6dde5 44%,
-            #d6dde5 48%,
-            transparent 49%
-        ),
-        linear-gradient(
-            -25deg,
-            transparent 47%,
-            #dce3eb 48%,
-            #dce3eb 51%,
-            transparent 52%
-        ),
-        linear-gradient(
-            90deg,
-            transparent 48%,
-            #dce3eb 49%,
-            #dce3eb 51%,
-            transparent 52%
-        ),
-        #eef2f7;
-}
-
-/* EXTRA ROADS */
-
-.road {
-    position: absolute;
-    background: #dbeafe;
-    border-radius: 10px;
-}
-
-.road1 {
-    width: 900px;
-    height: 65px;
-    left: 200px;
-    top: 300px;
-    transform: rotate(-8deg);
-}
-
-.road2 {
-    width: 70px;
-    height: 800px;
-    left: 800px;
-    top: 50px;
-    transform: rotate(12deg);
-}
-
-.road3 {
-    width: 700px;
-    height: 45px;
-    left: 400px;
-    top: 600px;
-    transform: rotate(18deg);
-    background: #e2e8f0;
-}
-
-/* ROUTE */
-
-.route-line {
-    position: absolute;
-    left: 515px;
-    top: 270px;
-    width: 420px;
-    height: 8px;
-    background: #2563eb;
-    border-radius: 10px;
-    transform: rotate(17deg);
-    transform-origin: left center;
-    opacity: 0.8;
-}
-
-/* MAP LABELS */
-
-.map-label {
-    position: absolute;
-    background: white;
-    padding: 9px 12px;
-    border-radius: 9px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-    font-size: 12px;
-    font-weight: bold;
-    z-index: 5;
-}
-
-.school-label {
-    left: 380px;
-    top: 540px;
-}
-
-.vehicle-label {
-    left: 850px;
-    top: 170px;
-}
-
-.guardian-label {
-    left: 1080px;
-    top: 400px;
-}
-
-/* VEHICLE MARKER */
-
-.vehicle-marker {
-    position: absolute;
-    left: 900px;
-    top: 220px;
-    width: 38px;
-    height: 38px;
-    background: #2563eb;
-    border: 5px solid white;
-    border-radius: 50%;
-    box-shadow: 0 5px 18px rgba(37,99,235,0.45);
-    z-index: 6;
-}
-
-.vehicle-marker::after {
-    content: "";
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: white;
-    border-radius: 50%;
-    left: 9px;
-    top: 9px;
-}
-
-/* GUARDIAN LOCATION */
-
-.guardian-marker {
-    position: absolute;
-    left: 1130px;
-    top: 455px;
-    width: 34px;
-    height: 34px;
-    background: #ef4444;
-    border: 5px solid white;
-    border-radius: 50%;
-    box-shadow: 0 4px 16px rgba(239,68,68,0.4);
-    z-index: 6;
-}
-
-.guardian-marker::after {
-    content: "";
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: white;
-    border-radius: 50%;
-    left: 8px;
-    top: 8px;
-}
-
-/* MAP CONTROLS */
-
-.map-controls {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    z-index: 20;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.map-control {
-    width: 42px;
-    height: 42px;
-    background: white;
-    color: #172033;
-    border: none;
-    border-radius: 9px;
-    font-size: 21px;
-    font-weight: bold;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-    cursor: pointer;
-}
-
-/* LOCATION INFO */
-
-.location-info {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 18px;
-}
-
-.location-box {
-    background: #f8fafc;
-    border: 1px solid #e5e9f0;
-    border-radius: 13px;
-    padding: 17px;
-}
-
-.location-label {
-    font-size: 10px;
-    color: #7b8494;
+.location-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: #2477ff;
     text-transform: uppercase;
 }
 
-.location-value {
-    margin-top: 6px;
-    font-weight: bold;
+.location-name {
+    font-size: 22px;
+    font-weight: 800;
+    margin-top: 7px;
 }
 
-/* LEGEND */
-
-.legend {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 15px;
-    font-size: 12px;
-    color: #657084;
+.location-time {
+    color: #697386;
+    margin-top: 5px;
 }
 
-.legend-item {
-    display: flex;
+
+/* HOUSINGS */
+
+.housing-card {
+    background: white;
+    border: 1px solid #e5e9f0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.housing-header {
+    padding: 20px;
+    border-bottom: 1px solid #e5e9f0;
+}
+
+.housing-header h2 {
+    margin-bottom: 5px;
+}
+
+.table-header,
+.housing-row {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr;
     align-items: center;
-    gap: 7px;
 }
 
-.legend-dot {
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-}
-
-.blue {
-    background: #2563eb;
-}
-
-.red-dot-map {
-    background: #ef4444;
-}
-
-footer {
-    text-align: center;
-    color: #8a93a2;
+.table-header {
+    background: #f7f9fc;
+    color: #697386;
     font-size: 12px;
-    margin: 30px 0;
-    line-height: 1.6;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 13px 20px;
 }
 
-/* MOBILE */
+.housing-row {
+    padding: 16px 20px;
+    border-top: 1px solid #edf0f5;
+}
 
-@media (max-width: 700px) {
+.housing-row.current {
+    background: #f1f7ff;
+    border-left: 4px solid #2477ff;
+}
 
-    main {
-        margin: 35px auto;
+.housing-name {
+    font-weight: 700;
+}
+
+.letter {
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #eef3fa;
+    margin-right: 8px;
+    font-weight: 800;
+}
+
+.current-here {
+    color: #2477ff;
+    font-weight: 800;
+}
+
+.arrived {
+    color: #159447;
+    font-weight: 700;
+}
+
+.late {
+    color: #d93025;
+    font-weight: 700;
+}
+
+.upcoming {
+    color: #9aa3b2;
+}
+
+
+/* CONTROLS */
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.control-button {
+    padding: 11px 16px;
+    border-radius: 9px;
+    background: white;
+    border: 1px solid #dce2eb;
+    font-weight: 700;
+}
+
+.control-button:hover {
+    background: #f2f5f9;
+}
+
+.footer {
+    text-align: center;
+    color: #9aa3b2;
+    font-size: 12px;
+    padding: 30px;
+}
+
+
+@media (max-width: 900px) {
+
+    .info-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .hero h1 {
-        font-size: 34px;
+}
+
+
+@media (max-width: 650px) {
+
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .card {
-        padding: 20px;
+    .table-header,
+    .housing-row {
+        grid-template-columns: 1.4fr 1fr 1fr;
+        font-size: 13px;
     }
 
-    .search {
+}
+
+
+@media (max-width: 500px) {
+
+    header {
+        padding: 15px;
+    }
+
+    .header-right {
+        display: none;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .trip-buttons {
         flex-direction: column;
     }
 
-    .check-button {
-        height: 52px;
+    .table-header,
+    .housing-row {
+        padding: 13px 10px;
     }
 
-    .location-info {
-        grid-template-columns: 1fr;
-    }
-
-    .map-container {
-        height: 350px;
-    }
-
-    header {
-        padding: 16px 5%;
-    }
-
-    .logo {
-        font-size: 23px;
-    }
-
-    .badge {
-        font-size: 9px;
-    }
 }
 </style>
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -621,648 +438,1533 @@ footer {
         Nao<span>Track</span>
     </div>
 
-    <div class="badge">
-        PROTOTYPE • DEMO ONLY
+    <div class="header-right">
+        Student Transport Tracking & Safety System
     </div>
 
 </header>
 
 
-<main>
 
-    <section class="hero">
+<!-- =========================
+     AUTH PAGE
+========================= -->
 
-        <h1>
-            Track your school vehicle.
-        </h1>
+<div id="authPage" class="container auth">
 
-        <p>
-            Simple, school-managed vehicle tracking.
-        </p>
+    <div class="card">
 
-    </section>
+        <div class="tabs">
 
+            <button
+                class="tab active"
+                onclick="showLogin()">
+                Login
+            </button>
 
-    <section class="card">
-
-        <!-- VEHICLE SEARCH -->
-
-        <div id="vehicleScreen">
-
-            <div class="search-title">
-                Vehicle Number
-            </div>
-
-            <div class="search">
-
-                <input
-                    id="vehicleNumber"
-                    type="text"
-                    placeholder="Enter vehicle number..."
-                    autocomplete="off"
-                >
-
-                <button
-                    class="check-button"
-                    onclick="checkVehicle()"
-                >
-                    CHECK VEHICLE
-                </button>
-
-            </div>
-
-            <div class="demo-text">
-                Demo vehicle number: <b>4827</b>
-            </div>
-
-            <div id="result"></div>
+            <button
+                class="tab"
+                onclick="showRegister()">
+                Register
+            </button>
 
         </div>
 
 
-        <!-- LIVE LOCATION -->
 
-        <div id="locationScreen">
+        <!-- LOGIN -->
+
+        <div id="loginBox">
+
+            <h2>Welcome back 👋</h2>
+
+            <p class="subtitle">
+                Login to check your school vehicle.
+            </p>
+
+
+            <label>Username</label>
+
+            <input
+                id="loginUser"
+                type="text"
+                placeholder="Enter username"
+            >
+
+
+            <label>Password</label>
+
+            <input
+                id="loginPass"
+                type="password"
+                placeholder="Enter password"
+            >
+
 
             <button
-                class="back-button"
-                onclick="goBack()"
-            >
-                ← Back to Vehicle
+                class="primary"
+                onclick="login()">
+                Login
             </button>
 
 
-            <div class="location-header">
-
-                <h2>
-                    Live Vehicle Location
-                </h2>
-
-                <p>
-                    Vehicle 4827 • Route 1
-                </p>
-
-            </div>
-
-
-            <div class="live-status">
-
-                <span class="live-dot"></span>
-
-                LIVE LOCATION
-
-            </div>
-
-
             <div
-                class="map-container"
-                id="mapContainer"
-            >
-
-                <div
-                    class="map"
-                    id="map"
-                >
-
-                    <div class="road road1"></div>
-                    <div class="road road2"></div>
-                    <div class="road road3"></div>
-
-
-                    <div class="route-line"></div>
-
-
-                    <div class="map-label school-label">
-                        🏫 School
-                    </div>
-
-
-                    <div class="map-label vehicle-label">
-                        🚌 Vehicle 4827
-                    </div>
-
-
-                    <div class="map-label guardian-label">
-                        📍 Your current location
-                    </div>
-
-
-                    <div class="vehicle-marker"></div>
-
-
-                    <div class="guardian-marker"></div>
-
-                </div>
-
-
-                <div class="map-controls">
-
-                    <button
-                        class="map-control"
-                        onclick="zoomIn()"
-                    >
-                        +
-                    </button>
-
-                    <button
-                        class="map-control"
-                        onclick="zoomOut()"
-                    >
-                        −
-                    </button>
-
-                    <button
-                        class="map-control"
-                        onclick="resetMap()"
-                    >
-                        ⌂
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div class="legend">
-
-                <div class="legend-item">
-
-                    <span class="legend-dot blue"></span>
-
-                    Vehicle
-
-                </div>
-
-
-                <div class="legend-item">
-
-                    <span class="legend-dot red-dot-map"></span>
-
-                    Your current location
-
-                </div>
-
-            </div>
-
-
-            <div class="location-info">
-
-                <div class="location-box">
-
-                    <div class="location-label">
-                        Vehicle
-                    </div>
-
-                    <div class="location-value">
-                        🚌 4827
-                    </div>
-
-                </div>
-
-
-                <div class="location-box">
-
-                    <div class="location-label">
-                        Status
-                    </div>
-
-                    <div class="location-value green">
-                        🟢 On Route
-                    </div>
-
-                </div>
-
-
-                <div class="location-box">
-
-                    <div class="location-label">
-                        Updated
-                    </div>
-
-                    <div class="location-value">
-                        Just now
-                    </div>
-
-                </div>
-
+                id="loginMessage"
+                class="message">
             </div>
 
         </div>
 
-    </section>
 
 
-    <footer>
+        <!-- REGISTER -->
 
-        NaoTrack is a prototype for demonstration purposes.
-        <br>
+        <div id="registerBox" class="hidden">
 
-        The map and locations shown are fictional demo data.
-        <br>
+            <h2>Create your account</h2>
 
-        No real vehicle or guardian location is being tracked.
+            <p class="subtitle">
+                Demo registration for NaoTrack.
+            </p>
 
-    </footer>
 
-</main>
+            <label>Name</label>
+
+            <input
+                id="regName"
+                type="text"
+                placeholder="Your name"
+            >
+
+
+            <label>Class</label>
+
+            <input
+                id="regClass"
+                type="text"
+                placeholder="Example: 7"
+            >
+
+
+            <label>Section</label>
+
+            <input
+                id="regSection"
+                type="text"
+                placeholder="Example: A"
+            >
+
+
+            <!-- NEW SCHOOL FIELD -->
+
+            <label>School</label>
+
+            <select id="regSchool">
+
+                <option>
+                    Aatreya Academy
+                </option>
+
+            </select>
+
+
+            <label>Campus</label>
+
+            <select id="regCampus">
+
+                <option>
+                    Aatreya Academy Phulwari
+                </option>
+
+                <option>
+                    Aatreya Academy Aadhaar
+                </option>
+
+            </select>
+
+
+            <label>Vehicle Number</label>
+
+            <input
+                id="regVehicle"
+                type="text"
+                placeholder="Example: NT-01"
+            >
+
+
+            <label>Username</label>
+
+            <input
+                id="regUser"
+                type="text"
+                placeholder="Create username"
+            >
+
+
+            <label>Password</label>
+
+            <input
+                id="regPass"
+                type="password"
+                placeholder="Create password"
+            >
+
+
+            <button
+                class="primary"
+                onclick="register()">
+                Create Account
+            </button>
+
+
+            <div
+                id="registerMessage"
+                class="message">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<div
+    id="dashboard"
+    class="container hidden">
+
+
+    <div class="welcome">
+
+        <h1>
+            Transport Dashboard
+        </h1>
+
+        <div
+            class="subtitle"
+            id="welcomeText">
+            Welcome to NaoTrack.
+        </div>
+
+    </div>
+
+
+
+    <!-- INFORMATION -->
+
+    <div class="info-grid">
+
+
+        <div class="info-card">
+
+            <div class="info-title">
+                School
+            </div>
+
+            <div
+                class="info-value"
+                id="schoolName">
+                Aatreya Academy
+            </div>
+
+        </div>
+
+
+
+        <div class="info-card">
+
+            <div class="info-title">
+                Vehicle
+            </div>
+
+            <div
+                class="info-value"
+                id="vehicleNumber">
+                NT-03
+            </div>
+
+        </div>
+
+
+
+        <div class="info-card">
+
+            <div class="info-title">
+                Vehicle Name
+            </div>
+
+            <div
+                class="info-value"
+                id="vehicleName">
+                Campus Runner
+            </div>
+
+        </div>
+
+
+
+        <div class="info-card">
+
+            <div class="info-title">
+                Campus
+            </div>
+
+            <div
+                class="info-value"
+                id="campusName">
+                Phulwari
+            </div>
+
+        </div>
+
+
+
+        <div class="info-card">
+
+            <div class="info-title">
+                Passengers
+            </div>
+
+            <div
+                class="info-value"
+                id="passengerCount">
+                10
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TRIP -->
+
+    <div class="trip-card">
+
+        <h2>
+            Check Vehicle
+        </h2>
+
+        <div class="subtitle">
+            Select the trip you want to track.
+        </div>
+
+
+        <div class="trip-buttons">
+
+            <button
+                id="arrivalBtn"
+                class="trip-button active"
+                onclick="setTrip('arrival')">
+
+                🌅 Arrival
+
+            </button>
+
+
+            <button
+                id="departureBtn"
+                class="trip-button"
+                onclick="setTrip('departure')">
+
+                🌇 Departure
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- STATUS -->
+
+    <div
+        id="statusBox"
+        class="status-box">
+
+        <div
+            class="status-title on-time"
+            id="statusTitle">
+
+            🟢 ON TIME
+
+        </div>
+
+
+        <div
+            class="status-description"
+            id="statusDescription">
+
+            Vehicle is currently following its
+            scheduled route.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CURRENT LOCATION -->
+
+    <div class="location-card">
+
+        <div class="location-title">
+
+            📍 Current Location
+
+        </div>
+
+
+        <div
+            class="location-name"
+            id="currentLocation">
+
+            C — Person C's House
+
+        </div>
+
+
+        <div
+            class="location-time"
+            id="lastUpdated">
+
+            Last updated: 7:36 AM
+
+        </div>
+
+    </div>
+
+
+
+    <!-- DEMO CONTROLS -->
+
+    <div class="controls">
+
+        <button
+            class="control-button"
+            onclick="moveVehicle()">
+
+            🚐 Move Vehicle
+
+        </button>
+
+
+        <button
+            class="control-button"
+            onclick="delayVehicle()">
+
+            ⏱ Simulate Delay
+
+        </button>
+
+
+        <button
+            class="control-button"
+            onclick="finishRoute()">
+
+            🏁 Finish Route
+
+        </button>
+
+
+        <button
+            class="control-button"
+            onclick="resetRoute()">
+
+            🔄 Reset Demo
+
+        </button>
+
+    </div>
+
+
+
+    <!-- HOUSING LIST -->
+
+    <div class="housing-card">
+
+
+        <div class="housing-header">
+
+            <h2 id="tripHeading">
+                🌅 Arrival
+            </h2>
+
+            <div class="subtitle">
+                Housing-by-housing transport status
+            </div>
+
+        </div>
+
+
+
+        <div class="table">
+
+
+            <div class="table-header">
+
+                <div>
+                    Housing
+                </div>
+
+                <div>
+                    Scheduled Timing
+                </div>
+
+                <div>
+                    Current Timing
+                </div>
+
+            </div>
+
+
+            <div id="housingList"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="footer">
+
+    NaoTrack Demo • Student-developed
+    transport tracking system
+
+</div>
+
 
 
 <script>
 
+
 /* =========================
-   CHECK VEHICLE
+   VEHICLES
 ========================= */
 
-function checkVehicle() {
-
-    const number =
-        document.getElementById("vehicleNumber").value.trim();
-
-    const result =
-        document.getElementById("result");
-
-
-    if (number === "4827") {
-
-        result.innerHTML = `
-
-            <div class="status-box">
-
-                <div class="status green">
-
-                    <span class="status-dot green-dot"></span>
-
-                    ON TIME
-
-                </div>
-
-                <div class="trip-type">
-                    ARRIVAL
-                </div>
-
-            </div>
-
-
-            <div class="vehicle-title">
-
-                <h2>
-                    Vehicle 4827
-                </h2>
-
-                <p>
-                    Route 1 • School Transport
-                </p>
-
-            </div>
-
-
-            <div class="house-list">
-
-
-                <div class="house-row">
-
-                    <div>
-                        <span class="house-name">
-                            House 1
-                        </span>
-
-                        <span class="house-label">
-                            Arrival
-                        </span>
-                    </div>
-
-                    <div class="house-time green">
-                        7:42 AM
-                    </div>
-
-                </div>
-
-
-                <div class="house-row">
-
-                    <div>
-                        <span class="house-name">
-                            House 2
-                        </span>
-
-                        <span class="house-label">
-                            Arrival
-                        </span>
-                    </div>
-
-                    <div class="house-time green">
-                        7:50 AM
-                    </div>
-
-                </div>
-
-
-                <div class="house-row">
-
-                    <div>
-                        <span class="house-name">
-                            House 3
-                        </span>
-
-                        <span class="house-label">
-                            Arrival
-                        </span>
-                    </div>
-
-                    <div class="house-time green">
-                        7:58 AM
-                    </div>
-
-                </div>
-
-
-                <div class="house-row">
-
-                    <div>
-                        <span class="house-name">
-                            House 4
-                        </span>
-
-                        <span class="house-label">
-                            Arrival
-                        </span>
-                    </div>
-
-                    <div class="house-time green">
-                        8:06 AM
-                    </div>
-
-                </div>
-
-
-                <div class="house-row">
-
-                    <div>
-                        <span class="house-name">
-                            House 5
-                        </span>
-
-                        <span class="house-label">
-                            Arrival
-                        </span>
-                    </div>
-
-                    <div class="house-time green">
-                        8:14 AM
-                    </div>
-
-                </div>
-
-
-                <div class="house-row">
-
-                    <div>
-                        <span class="house-name">
-                            School
-                        </span>
-
-                        <span class="house-label">
-                            Final Stop
-                        </span>
-                    </div>
-
-                    <div class="house-time green">
-                        8:25 AM
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-            <button
-                class="location-button"
-                onclick="showLocation()"
-            >
-                📍 CHECK LIVE LOCATION
-            </button>
-
-        `;
-
-    } else {
-
-        result.innerHTML = `
-
-            <div class="error">
-
-                <strong>
-                    ❌ Failed to fetch
-                </strong>
-
-                <br><br>
-
-                No vehicle was found with the number
-
-                <b>
-                    ${number || "entered"}
-                </b>.
-
-            </div>
-
-        `;
-
+const vehicles = {
+
+    "NT-01": {
+        name: "NaoTrack Express",
+        passengersArrival: 10,
+        passengersDeparture: 11
+    },
+
+    "NT-02": {
+        name: "School Rider",
+        passengersArrival: 9,
+        passengersDeparture: 10
+    },
+
+    "NT-03": {
+        name: "Campus Runner",
+        passengersArrival: 10,
+        passengersDeparture: 11
+    },
+
+    "NT-04": {
+        name: "Academy Transport",
+        passengersArrival: 8,
+        passengersDeparture: 9
+    },
+
+    "NT-05": {
+        name: "Student Shuttle",
+        passengersArrival: 12,
+        passengersDeparture: 11
+    },
+
+    "NT-06": {
+        name: "Aatreya Rider",
+        passengersArrival: 10,
+        passengersDeparture: 10
     }
 
-}
+};
 
-
-/* =========================
-   LIVE LOCATION
-========================= */
-
-function showLocation() {
-
-    document.getElementById("vehicleScreen").style.display =
-        "none";
-
-    document.getElementById("locationScreen").style.display =
-        "block";
-
-    resetMap();
-
-}
-
-
-function goBack() {
-
-    document.getElementById("locationScreen").style.display =
-        "none";
-
-    document.getElementById("vehicleScreen").style.display =
-        "block";
-
-}
 
 
 /* =========================
-   DRAGGABLE MAP
+   ARRIVAL ROUTE
 ========================= */
 
-const container =
-    document.getElementById("mapContainer");
+const arrivalHouses = [
 
-const map =
-    document.getElementById("map");
+    {
+        letter: "A",
+        name: "Person A's House",
+        scheduled: "7:20 AM"
+    },
 
-let dragging = false;
+    {
+        letter: "B",
+        name: "Person B's House",
+        scheduled: "7:27 AM"
+    },
 
-let startX = 0;
-let startY = 0;
+    {
+        letter: "C",
+        name: "Person C's House",
+        scheduled: "7:35 AM"
+    },
 
-let mapX = -250;
-let mapY = -180;
+    {
+        letter: "D",
+        name: "Person D's House",
+        scheduled: "7:43 AM"
+    },
 
-let scale = 1;
+    {
+        letter: "E",
+        name: "Person E's House",
+        scheduled: "7:51 AM"
+    },
+
+    {
+        letter: "F",
+        name: "Person F's House",
+        scheduled: "7:59 AM"
+    }
+
+];
 
 
-function updateMap() {
 
-    map.style.transform =
-        `translate(${mapX}px, ${mapY}px) scale(${scale})`;
+/* =========================
+   DEPARTURE ROUTE
+========================= */
+
+const departureHouses = [
+
+    {
+        letter: "A",
+        name: "Person A's House",
+        scheduled: "2:30 PM"
+    },
+
+    {
+        letter: "B",
+        name: "Person B's House",
+        scheduled: "2:38 PM"
+    },
+
+    {
+        letter: "C",
+        name: "Person C's House",
+        scheduled: "2:46 PM"
+    },
+
+    {
+        letter: "D",
+        name: "Person D's House",
+        scheduled: "2:54 PM"
+    },
+
+    {
+        letter: "E",
+        name: "Person E's House",
+        scheduled: "3:02 PM"
+    },
+
+    {
+        letter: "F",
+        name: "Person F's House",
+        scheduled: "3:10 PM"
+    }
+
+];
+
+
+
+/* =========================
+   STATE
+========================= */
+
+let currentTrip = "arrival";
+
+let currentIndex = 2;
+
+let finished = false;
+
+let delayed = false;
+
+let currentData = arrivalHouses;
+
+
+
+/* =========================
+   LOGIN / REGISTER TABS
+========================= */
+
+function showLogin() {
+
+    document
+        .getElementById("loginBox")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("registerBox")
+        .classList.add("hidden");
+
+
+    document
+        .querySelectorAll(".tab")[0]
+        .classList.add("active");
+
+    document
+        .querySelectorAll(".tab")[1]
+        .classList.remove("active");
 
 }
 
 
-/* MOUSE */
 
-container.addEventListener("mousedown", function(e) {
+function showRegister() {
 
-    if (e.target.closest(".map-control")) {
+    document
+        .getElementById("loginBox")
+        .classList.add("hidden");
+
+    document
+        .getElementById("registerBox")
+        .classList.remove("hidden");
+
+
+    document
+        .querySelectorAll(".tab")[1]
+        .classList.add("active");
+
+    document
+        .querySelectorAll(".tab")[0]
+        .classList.remove("active");
+
+}
+
+
+
+/* =========================
+   REGISTER
+========================= */
+
+function register() {
+
+    const name =
+        document
+            .getElementById("regName")
+            .value
+            .trim();
+
+
+    const vehicle =
+        document
+            .getElementById("regVehicle")
+            .value
+            .trim()
+            .toUpperCase();
+
+
+    const username =
+        document
+            .getElementById("regUser")
+            .value
+            .trim();
+
+
+    const password =
+        document
+            .getElementById("regPass")
+            .value;
+
+
+    const message =
+        document
+            .getElementById("registerMessage");
+
+
+    if (
+        !name ||
+        !vehicle ||
+        !username ||
+        !password
+    ) {
+
+        message.style.color = "#d93025";
+
+        message.innerText =
+            "Please fill in all required fields.";
+
         return;
+
     }
 
-    dragging = true;
-
-    startX = e.clientX - mapX;
-    startY = e.clientY - mapY;
-
-});
 
 
-document.addEventListener("mousemove", function(e) {
+    if (!vehicles[vehicle]) {
 
-    if (!dragging) {
+        message.style.color = "#d93025";
+
+        message.innerText =
+            "Vehicle number not found. Try NT-01 to NT-06.";
+
         return;
+
     }
 
-    mapX = e.clientX - startX;
-    mapY = e.clientY - startY;
-
-    updateMap();
-
-});
 
 
-document.addEventListener("mouseup", function() {
+    const account = {
 
-    dragging = false;
+        name: name,
 
-});
+        class:
+            document
+                .getElementById("regClass")
+                .value,
 
+        section:
+            document
+                .getElementById("regSection")
+                .value,
 
-/* TOUCH */
+        school:
+            document
+                .getElementById("regSchool")
+                .value,
 
-container.addEventListener("touchstart", function(e) {
+        campus:
+            document
+                .getElementById("regCampus")
+                .value,
 
-    if (e.target.closest(".map-control")) {
-        return;
-    }
+        vehicle: vehicle,
 
-    const touch = e.touches[0];
+        username: username,
 
-    dragging = true;
+        password: password
 
-    startX = touch.clientX - mapX;
-    startY = touch.clientY - mapY;
-
-}, { passive: true });
-
-
-container.addEventListener("touchmove", function(e) {
-
-    if (!dragging) {
-        return;
-    }
-
-    const touch = e.touches[0];
-
-    mapX = touch.clientX - startX;
-    mapY = touch.clientY - startY;
-
-    updateMap();
-
-}, { passive: true });
+    };
 
 
-container.addEventListener("touchend", function() {
 
-    dragging = false;
+    localStorage.setItem(
+        "naotrackAccount",
+        JSON.stringify(account)
+    );
 
-});
+
+
+    message.style.color = "#159447";
+
+    message.innerText =
+        "Account created! You can now login.";
+
+}
+
 
 
 /* =========================
-   ZOOM
+   LOGIN
 ========================= */
 
-function zoomIn() {
+function login() {
 
-    scale += 0.15;
+    const username =
+        document
+            .getElementById("loginUser")
+            .value;
 
-    if (scale > 2) {
-        scale = 2;
+
+    const password =
+        document
+            .getElementById("loginPass")
+            .value;
+
+
+    const saved =
+        localStorage.getItem(
+            "naotrackAccount"
+        );
+
+
+    const message =
+        document
+            .getElementById("loginMessage");
+
+
+
+    if (!saved) {
+
+        message.style.color =
+            "#d93025";
+
+        message.innerText =
+            "No demo account found. Please register first.";
+
+        return;
+
     }
 
-    updateMap();
-
-}
 
 
-function zoomOut() {
+    const account =
+        JSON.parse(saved);
 
-    scale -= 0.15;
 
-    if (scale < 0.7) {
-        scale = 0.7;
+
+    if (
+        username === account.username &&
+        password === account.password
+    ) {
+
+        loadDashboard(account);
+
     }
 
-    updateMap();
+    else {
+
+        message.style.color =
+            "#d93025";
+
+        message.innerText =
+            "Incorrect username or password.";
+
+    }
 
 }
 
-
-function resetMap() {
-
-    mapX = -250;
-    mapY = -180;
-    scale = 1;
-
-    updateMap();
-
-}
 
 
 /* =========================
-   ENTER KEY
+   LOAD DASHBOARD
 ========================= */
 
-document
-    .getElementById("vehicleNumber")
-    .addEventListener("keydown", function(event) {
+function loadDashboard(account) {
 
-        if (event.key === "Enter") {
+    document
+        .getElementById("authPage")
+        .classList.add("hidden");
 
-            checkVehicle();
+
+    document
+        .getElementById("dashboard")
+        .classList.remove("hidden");
+
+
+
+    const vehicle =
+        vehicles[account.vehicle];
+
+
+
+    document
+        .getElementById("welcomeText")
+        .innerText =
+        "Welcome, " +
+        account.name +
+        " • Class " +
+        account.class +
+        "-" +
+        account.section;
+
+
+
+    document
+        .getElementById("schoolName")
+        .innerText =
+        account.school;
+
+
+
+    document
+        .getElementById("vehicleNumber")
+        .innerText =
+        account.vehicle;
+
+
+
+    document
+        .getElementById("vehicleName")
+        .innerText =
+        vehicle.name;
+
+
+
+    document
+        .getElementById("campusName")
+        .innerText =
+        account.campus
+            .includes("Aadhaar")
+            ? "Aadhaar"
+            : "Phulwari";
+
+
+
+    document
+        .getElementById("passengerCount")
+        .innerText =
+        vehicle.passengersArrival;
+
+
+
+    renderHouses();
+
+}
+
+
+
+/* =========================
+   CHANGE TRIP
+========================= */
+
+function setTrip(trip) {
+
+    currentTrip = trip;
+
+
+    currentData =
+        trip === "arrival"
+            ? arrivalHouses
+            : departureHouses;
+
+
+    currentIndex = 2;
+
+    finished = false;
+
+    delayed = false;
+
+
+
+    document
+        .getElementById("arrivalBtn")
+        .classList.toggle(
+            "active",
+            trip === "arrival"
+        );
+
+
+    document
+        .getElementById("departureBtn")
+        .classList.toggle(
+            "active",
+            trip === "departure"
+        );
+
+
+
+    document
+        .getElementById("tripHeading")
+        .innerText =
+        trip === "arrival"
+            ? "🌅 Arrival"
+            : "🌇 Departure";
+
+
+
+    const saved =
+        localStorage.getItem(
+            "naotrackAccount"
+        );
+
+
+    if (saved) {
+
+        const account =
+            JSON.parse(saved);
+
+        const vehicle =
+            vehicles[account.vehicle];
+
+
+        document
+            .getElementById("passengerCount")
+            .innerText =
+            trip === "arrival"
+                ? vehicle.passengersArrival
+                : vehicle.passengersDeparture;
+
+    }
+
+
+
+    renderHouses();
+
+}
+
+
+
+/* =========================
+   RENDER HOUSING LIST
+========================= */
+
+function renderHouses() {
+
+    const list =
+        document
+            .getElementById("housingList");
+
+
+    list.innerHTML = "";
+
+
+
+    currentData.forEach(
+        (house, index) => {
+
+
+        let currentTime = "—";
+
+        let className = "";
+
+        let statusText = "";
+
+
+
+        if (finished) {
+
+            currentTime =
+                getFinishedTime(house);
+
+            className = "arrived";
+
+            statusText = "✓ ARRIVED";
 
         }
 
+
+        else if (index < currentIndex) {
+
+            currentTime =
+                getCurrentTime(
+                    house,
+                    index
+                );
+
+            className = "arrived";
+
+            statusText = "✓ ARRIVED";
+
+        }
+
+
+        else if (index === currentIndex) {
+
+            currentTime = "🚐 HERE";
+
+            className =
+                "current-here";
+
+            statusText = "CURRENT";
+
+        }
+
+
+        else {
+
+            currentTime = "—";
+
+            className = "upcoming";
+
+        }
+
+
+
+        const row =
+            document.createElement("div");
+
+
+        row.className =
+            "housing-row " +
+            (
+                index === currentIndex &&
+                !finished
+                    ? "current"
+                    : ""
+            );
+
+
+
+        row.innerHTML = `
+
+            <div class="housing-name">
+
+                <span class="letter">
+                    ${house.letter}
+                </span>
+
+                ${house.name}
+
+            </div>
+
+
+            <div>
+                ${house.scheduled}
+            </div>
+
+
+            <div class="${className}">
+
+                ${currentTime}
+
+                ${
+                    statusText && !finished
+                        ? "<br><small>" +
+                          statusText +
+                          "</small>"
+                        : ""
+                }
+
+            </div>
+
+        `;
+
+
+
+        list.appendChild(row);
+
     });
+
+
+
+    updateStatus();
+
+}
+
+
+
+/* =========================
+   CURRENT TIME
+========================= */
+
+function getCurrentTime(
+    house,
+    index
+) {
+
+    if (delayed) {
+
+        return addMinutes(
+            house.scheduled,
+            10
+        ) + " 🔴";
+
+    }
+
+
+    return addMinutes(
+        house.scheduled,
+        1
+    );
+
+}
+
+
+
+/* =========================
+   ADD MINUTES
+========================= */
+
+function addMinutes(
+    timeString,
+    minutes
+) {
+
+    const clean =
+        timeString
+            .replace(" AM", "")
+            .replace(" PM", "");
+
+
+    const parts =
+        clean.split(":");
+
+
+    let hour =
+        parseInt(parts[0]);
+
+
+    let minute =
+        parseInt(parts[1]);
+
+
+    const isPM =
+        timeString.includes("PM");
+
+
+    minute += minutes;
+
+
+
+    if (minute >= 60) {
+
+        hour +=
+            Math.floor(
+                minute / 60
+            );
+
+        minute %= 60;
+
+    }
+
+
+
+    if (hour > 12) {
+
+        hour -= 12;
+
+    }
+
+
+
+    const suffix =
+        isPM ? "PM" : "AM";
+
+
+    return (
+        hour +
+        ":" +
+        String(minute)
+            .padStart(2, "0") +
+        " " +
+        suffix
+    );
+
+}
+
+
+
+/* =========================
+   FINISHED TIME
+========================= */
+
+function getFinishedTime(
+    house
+) {
+
+    if (delayed) {
+
+        return addMinutes(
+            house.scheduled,
+            10
+        );
+
+    }
+
+
+    return addMinutes(
+        house.scheduled,
+        1
+    );
+
+}
+
+
+
+/* =========================
+   UPDATE STATUS
+========================= */
+
+function updateStatus() {
+
+    const title =
+        document
+            .getElementById("statusTitle");
+
+
+    const description =
+        document
+            .getElementById(
+                "statusDescription"
+            );
+
+
+
+    if (finished) {
+
+        title.className =
+            "status-title done";
+
+
+        title.innerText =
+            "🏁 JOB DONE";
+
+
+        description.innerText =
+            "This " +
+            (
+                currentTrip === "arrival"
+                    ? "arrival"
+                    : "departure"
+            ) +
+            " trip has been completed.";
+
+
+
+        document
+            .getElementById("currentLocation")
+            .innerText =
+            "🏁 Route Completed";
+
+
+        document
+            .getElementById("lastUpdated")
+            .innerText =
+            "All scheduled housings have been completed.";
+
+        return;
+
+    }
+
+
+
+    if (delayed) {
+
+        title.className =
+            "status-title delayed";
+
+
+        title.innerText =
+            "🔴 DELAYED BY 10 MINUTES";
+
+
+        description.innerText =
+            "The vehicle is currently running behind schedule.";
+
+    }
+
+
+    else {
+
+        title.className =
+            "status-title on-time";
+
+
+        title.innerText =
+            "🟢 ON TIME";
+
+
+        description.innerText =
+            "Vehicle is currently following its scheduled route.";
+
+    }
+
+
+
+    const currentHouse =
+        currentData[currentIndex];
+
+
+
+    document
+        .getElementById("currentLocation")
+        .innerText =
+        currentHouse.letter +
+        " — " +
+        currentHouse.name;
+
+
+
+    document
+        .getElementById("lastUpdated")
+        .innerText =
+        "Last updated: " +
+        getCurrentTime(
+            currentHouse,
+            currentIndex
+        );
+
+}
+
+
+
+/* =========================
+   MOVE VEHICLE
+========================= */
+
+function moveVehicle() {
+
+    if (finished) return;
+
+
+
+    if (
+        currentIndex <
+        currentData.length - 1
+    ) {
+
+        currentIndex++;
+
+        renderHouses();
+
+    }
+
+    else {
+
+        finishRoute();
+
+    }
+
+}
+
+
+
+/* =========================
+   SIMULATE DELAY
+========================= */
+
+function delayVehicle() {
+
+    if (finished) return;
+
+
+    delayed = true;
+
+
+    renderHouses();
+
+}
+
+
+
+/* =========================
+   FINISH ROUTE
+========================= */
+
+function finishRoute() {
+
+    finished = true;
+
+
+    renderHouses();
+
+}
+
+
+
+/* =========================
+   RESET
+========================= */
+
+function resetRoute() {
+
+    currentIndex = 2;
+
+    finished = false;
+
+    delayed = false;
+
+
+    renderHouses();
+
+}
 
 </script>
 
